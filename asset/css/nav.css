@@ -1,0 +1,19 @@
+.nav-wrapper {
+    width: 100%;
+}
+.nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    font-size: 1.5em;
+}
+.logo, .nav ul {
+    display: inline-block;
+}
+.logo {
+    margin-right: 20px;
+}
+.nav ul li {
+    display: inline;
+    margin-left: 10px;
+}

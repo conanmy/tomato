@@ -1,0 +1,17 @@
+.main {
+    float: left;
+    width: 650px;
+}
+.side {
+    float: left;
+    width: 250px;
+}
+.unlogged .button {
+    margin: 0 5px;
+}
+.event-list .list-entry {
+    padding: 10px 0;
+}
+.event-list .title {
+    font-size: 1.2em;
+}

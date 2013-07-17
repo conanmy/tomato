@@ -1,0 +1,146 @@
+/****基本设置****/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0
+}
+html {
+    color: #000;
+    overflow-y: scoll;
+    overflow: -moz-scrollbars-vertical
+}
+body, button, input, select, textarea {
+    font-size: 12px;
+    font-family: arial, \5b8b\4f53, sans-serif
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%
+}
+em {
+    font-style: normal
+}
+ul, ol {
+    list-style: none
+}
+a {
+    text-decoration: none
+}
+a:hover {
+    text-decoration: underline
+}
+img {
+    border: 0
+}
+button, input, select, textarea {
+    font-size: 100%
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+textarea {
+    resize: vertical
+}
+.hide {
+    display: none
+}
+.error {
+    color: #F00;
+    font-size: 12px
+}
+button {
+    cursor: pointer
+}
+.clearfix:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both
+}
+.clearfix {
+    zoom: 1
+}
+.clear {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    visibility: hidden;
+    overflow: hidden
+}
+body, form, #s_fm {
+    position: relative
+}
+td {
+    text-align: left
+}
+img {
+    border: 0
+}
+/****页面结构****/
+body {
+    line-height: 1.6;
+}
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+h1 {
+    font-size: 1.3em;
+    color: #494949;
+    padding-bottom: 10px;
+}
+h2 {
+    font-size: 1.2em;
+    padding-bottom: 10px;
+}
+input[type='submit'] {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.tomato_color {
+    color: #f67980;
+}
+.tomato_back {
+    background-color: #f67980;
+}
+.button {
+    display: inline-block;
+    cursor: pointer;
+    padding: 3px 10px;
+    border: solid 1px #ac6e4f;
+    background-color: #fe9500;
+    font-size: 1.1em;
+}
+.row {
+    margin: 10px 0;
+    line-height: 20px;
+}
+.row label.field {
+    width: 60px;
+    text-align: right;
+    vertical-align: top;
+    font-size: 1.1em;
+    margin-right: 15px;
+}
+.row .basic-input {
+    margin-right: 10px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    padding: 5px 4px;
+    _padding_right: 8px;
+}
+.row .field, .row .item {
+    display: inline-block;
+}
+.row textarea {
+    width: 500px;
+    min-height: 200px;
+    font-size: 14px;
+    resize: vertical;
+}
+.title {
+    color: #111;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
