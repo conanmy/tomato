@@ -15,7 +15,7 @@
         <div class="row">
             <label class="field">活动时间</label>
             <div class="item">
-                <input id="datepicker" type="text" placeholder="活动日期" />
+                <input id="datepicker" class="basic-input" type="text" placeholder="活动日期" />
                 <span>
                     <select class="basic-input" id="event-begin" name="begin">
                         <option value="开始时间" selected="">开始时间</option>
@@ -36,6 +36,7 @@
                         <option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option>
                         <option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option>
                     </select>
+                                                            至
                     <select class="basic-input" id="event-end" name="end">
                         <option value="结束时间" selected="">结束时间</option>
                         <option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option>
@@ -92,7 +93,9 @@
     </form>
 </div>
 <script>
-    $('datepicker').datepicker();
+    $('#datepicker').datepicker({
+        dateFormat: "yy-mm-dd"
+    });
 </script>
 
 <?php include('foot.php'); ?>

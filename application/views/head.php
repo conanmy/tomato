@@ -7,8 +7,9 @@
     <?php echo link_tag('/asset/css/base.css') ?>
     <?php echo link_tag('/asset/css/nav.css') ?>
     <?php echo link_tag('/asset/css/wrapper.css') ?>
+    <?php echo link_tag('/asset/css/ui-lightness/jquery-ui-1.10.3.custom.min.css') ?>
     <script src="<?php echo base_url() ?>asset/js/jquery-1.9.1.js"></script>
-    <script src="<?php echo base_url() ?>asset/js/jquery-ui-1.10.3.custom.min.jss"></script>
+    <script src="<?php echo base_url() ?>asset/js/jquery-ui-1.10.3.custom.min.js"></script>
 </head>
 <body>
 <?php include('nav.php'); ?>

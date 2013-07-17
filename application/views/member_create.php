@@ -56,6 +56,14 @@
             </div>
         </div>
         <div class="row">
+            <label class="field">手机</label>
+            <div class="item">
+                <span><input type="text" class="basic-input" id="member-phone" name="phone"/></span>
+                <span class="tip"></span>
+                <span class="error" id="phone-error"></span>
+            </div>
+        </div>
+        <div class="row">
             <label class="field">自我介绍</label>
             <div class="item">
                 <span>
@@ -71,6 +79,10 @@
     </form>
 </div>
 <script>
-    $('member-birthday').datepicker();
+    $('#member-birthday').datepicker({
+        dateFormat: "yy-mm-dd",
+        yearRange: "1970:2030",
+        changeYear: true
+    });
 </script>
 <?php include('foot.php'); ?>
