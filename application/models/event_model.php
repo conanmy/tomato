@@ -10,8 +10,8 @@ class Event_model extends CI_Model {
         $this->db->insert('event', $arr);
     }
     
-    function select($id) {
-        $this->db->where('id', $id);
+    function select($key, $value) {
+        $this->db->where($key, $value);
         $this->db->select('*');
         $query = $this->db->get('event');
         return $query->result();
@@ -21,6 +21,11 @@ class Event_model extends CI_Model {
         $this->db->select('*');
         $query = $this->db->get('event');
         return $query->result();
+    }
+    
+    function update($key, $value, $array) {
+        $this->db->where($key, $value);
+        $this->db->update('event', $array);
     }
 }
 ?>

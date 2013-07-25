@@ -144,3 +144,12 @@ input[type='submit'] {
     margin-bottom: 5px;
     line-height: 1.5;
 }
+.info {
+    display: inline-block;
+    margin-left: 10px;
+}
+/******图像宽度******/
+.avatar-normal {
+    display: inline-block;
+    width: 100px;
+}

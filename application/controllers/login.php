@@ -15,7 +15,8 @@ class Login extends CI_Controller {
         if ($_POST['password'] == $member['0']->password) {
             $data = array(
                 'logged_in' => TRUE,
-                'user_name' => $member['0']->name
+                'user_name' => $member['0']->name,
+                'user_id' => $member['0']->id,
             );
             $this->session->set_userdata($data);
             redirect('/event/');

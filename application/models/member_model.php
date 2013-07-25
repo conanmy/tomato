@@ -17,6 +17,11 @@ class Member_model extends CI_Model {
         return $query->result();
     }
     
+    function update($key, $value, $array) {
+        $this->db->where($key, $value);
+        $this->db->update('member', $array);
+    }
+    
     function all() {
         $this->db->select('*');
         $query = $this->db->get('member');
