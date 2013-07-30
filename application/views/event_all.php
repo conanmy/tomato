@@ -1,6 +1,6 @@
 <?php include('head.php'); ?>
 <div class="main">
-    <h1>即期活动</h1>
+    <h1>历史活动</h1>
     <ul class="event-list">
     <?php foreach($events as $event): ?>
     <li class="list-entry clearfix">
@@ -8,7 +8,6 @@
     </li>
     <?php endforeach; ?>
     </ul>
-    <p class="previous-event-link"><a href="<?php echo base_url().'index.php/event/all/'; ?>">历史活动</a></p>
 </div>
 <div class="side">
     <?php
@@ -16,7 +15,7 @@
             include('unlogged.php');
         }
         else {
-            echo '<p><a href="'.base_url().'index.php/event/create/">发起活动</a></p>';
+            echo '<a href="'.base_url().'index.php/event/create/">发起活动</a>';
         }
     ?>
 </div>

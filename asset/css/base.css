@@ -117,7 +117,7 @@ input[type='submit'] {
     line-height: 20px;
 }
 .row label.field {
-    width: 60px;
+    width: 95px;
     text-align: right;
     vertical-align: top;
     font-size: 1.1em;
@@ -145,11 +145,22 @@ input[type='submit'] {
     line-height: 1.5;
 }
 .info {
-    display: inline-block;
+    float: left;
     margin-left: 10px;
 }
 /******图像宽度******/
+.avatar-big {
+    float: left;
+    width: 120px;
+    height: 120px;
+}
 .avatar-normal {
-    display: inline-block;
-    width: 100px;
+    float: left;
+    width: 90px;
+    height: 90px;
+}
+.avatar-small {
+    float: left;
+    width: 60px;
+    height: 60px;
 }

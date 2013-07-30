@@ -3,7 +3,7 @@
     <h1>成员列表</h1>
     <ul class="member-list">
     <?php foreach($members as $member): ?>
-    <li class="list-entry">
+    <li class="list-entry clearfix">
         <?php include('member_item.php'); ?>
     </li>
     <?php endforeach; ?>

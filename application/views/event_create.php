@@ -3,7 +3,6 @@
 <h1>创建新活动</h1>
 
 <div class="create-event-form">
-    <form method="post" action="../insert/">
         <div class="row">
             <label class="field">活动标题</label>
             <div class="item">
@@ -15,7 +14,7 @@
         <div class="row">
             <label class="field">活动时间</label>
             <div class="item">
-                <input id="datepicker" class="basic-input" type="text" placeholder="活动日期" />
+                <input id="event-date" class="basic-input" type="text" placeholder="活动日期" />
                 <span>
                     <select class="basic-input" id="event-begin" name="begin">
                         <option value="开始时间" selected="">开始时间</option>
@@ -58,7 +57,7 @@
                     </select>
                 </span>
                 <span class="tip"></span>
-                <span class="error" id="time-error"></span>
+                <span class="error" id="date-error"></span>
             </div>
         </div>
         <div class="row">
@@ -89,13 +88,59 @@
                 <span class="error" id="fee-error"></span>
             </div>
         </div>
-        <input type="submit" value="提交" />
-    </form>
+        <input type="submit" value="提交" id="submit" />
 </div>
 <script>
-    $('#datepicker').datepicker({
+    $('#event-date').datepicker({
         dateFormat: "yy-mm-dd"
     });
+    document.getElementById('submit').onclick = function() {
+        var map = ['name', 'date', 'place', 'content', 'fee'];
+        var len = map.length;
+        
+        var flag = true;
+        for (var i = 0; i< len; i++) {
+            if (!checkNodeEmpty(map[i])) {
+                flag = false;
+            }
+        }
+        if (!flag) {
+            return;
+        }
+        
+        $.post(
+            '../insert/',
+            {
+                name: document.getElementsByName('name')[0].value,
+                begin: document.getElementById('event-date').value + ' ' + document.getElementsByName('begin')[0].value,
+                end: document.getElementById('event-date').value + ' ' + document.getElementsByName('end')[0].value,
+                place: document.getElementsByName('place')[0].value,
+                fee: document.getElementsByName('fee')[0].value,
+                content: document.getElementsByName('content')[0].value
+            },
+            function() {
+                window.location.href='../';
+            }
+        );
+    }
+    
+    function checkEmpty(str) {
+        if (str.length == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    function checkNodeEmpty(mark) {
+        if (!checkEmpty($('#event-' + mark)[0].value)) {
+            $('#' + mark + '-error')[0].innerHTML = '请输入内容';
+        }
+        else {
+            $('#' + mark + '-error')[0].innerHTML = '';
+        }
+        return checkEmpty($('#member-' + mark)[0].value);
+    }
 </script>
 
 <?php include('foot.php'); ?>

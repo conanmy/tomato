@@ -45,7 +45,9 @@ class Member extends CI_Controller {
         if ($verify == $info['0']->verify) {
             unset($info['0']->verify);
             $this->member_model->insert($info['0']);
+            copy('asset/img/avatar/default.jpg', 'asset/img/avatar/'.$id.'.jpg');
         }
+        redirect('../../');
     }
 }
 

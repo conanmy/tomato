@@ -15,3 +15,31 @@
 .event-list .title {
     font-size: 1.2em;
 }
+.member-list .list-entry {
+    float: left;
+    padding: 8px;
+}
+/******活动详情******/
+.event-info {
+    position: relative;
+    margin-bottom: 10px;
+}
+.event-join {
+    position: absolute;
+    bottom: 0px;
+    right: 200px;
+}
+.event-info .title {
+    font-size: 2em;
+}
+.event-member {
+    margin-bottom: 10px;
+}
+#cancel {
+    cursor: pointer;
+    margin-left: 5px;
+    color: #d6d6d6;
+}
+.previous-event-link {
+    margin-top:20px;
+}
