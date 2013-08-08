@@ -1,6 +1,8 @@
 <?php include('head.php'); ?>
-
-<h1>创建新活动</h1>
+<?php
+    $event = $events['0'];
+?>
+<h1>管理活动</h1>
 
 <div class="create-event-form">
         <div class="row">
@@ -8,6 +10,7 @@
             <div class="item">
                 <span><input type="text" class="basic-input" id="event-name" name="name"/></span>
                 <span class="tip"></span>
+                <span class="mod" for="name">保存修改</span>
                 <span class="error" id="name-error"></span>
             </div>
         </div>
@@ -57,6 +60,7 @@
                     </select>
                 </span>
                 <span class="tip"></span>
+                <span class="mod" for="time">保存修改</span>
                 <span class="error" id="date-error"></span>
             </div>
         </div>
@@ -65,6 +69,7 @@
             <div class="item">
                 <span><input type="text" class="basic-input" id="event-place" name="place" /></span>
                 <span class="tip"></span>
+                <span class="mod" for="place">保存修改</span>
                 <span class="error" id="place-error"></span>
             </div>
         </div>
@@ -76,6 +81,7 @@
                 </span>
                 <p>
                     <span class="tip"></span>
+                    <span class="mod" for="content">保存修改</span>
                     <span class="error" id="content-error"></span>
                 </p>
             </div>
@@ -85,44 +91,48 @@
             <div class="item">
                 <span><input type="text" class="basic-input" id="event-fee" name="fee"/></span>
                 <span class="tip"></span>
+                <span class="mod" for="fee">保存修改</span>
                 <span class="error" id="fee-error"></span>
             </div>
         </div>
-        <input type="submit" value="提交" id="submit" />
 </div>
 <script>
     $('#event-date').datepicker({
         dateFormat: "yy-mm-dd"
     });
-    document.getElementById('submit').onclick = function() {
-        var map = ['name', 'date', 'place', 'content', 'fee'];
-        var len = map.length;
-        
-        var flag = true;
-        for (var i = 0; i< len; i++) {
-            if (!checkNodeEmpty(map[i])) {
-                flag = false;
-            }
-        }
-        if (!flag) {
-            return;
-        }
-        
-        $.post(
-            '../insert/',
-            {
-                name: document.getElementsByName('name')[0].value,
-                begin: document.getElementById('event-date').value + ' ' + document.getElementsByName('begin')[0].value,
-                end: document.getElementById('event-date').value + ' ' + document.getElementsByName('end')[0].value,
-                place: document.getElementsByName('place')[0].value,
-                fee: document.getElementsByName('fee')[0].value,
-                content: document.getElementsByName('content')[0].value
-            },
-            function() {
-                window.location.href='../';
-            }
-        );
+    var map = {
+        name: '<?php echo $event->name; ?>',
+        date: '<?php echo $event->begin; ?>', 
+        place: '<?php echo $event->place; ?>',
+        content: '<?php echo json_encode($event->content); ?>',
+        fee: '<?php echo $event->fee; ?>'
+    };
+    
+    for (var key in map) {
+        $('#event-' + key)[0].value = map[key];
     }
+    
+    $('.mod').each(function(key, item){
+        item.onclick = function() {
+            var mark = $(item).attr('for');
+            if (!checkNodeEmpty(mark)) {
+                return false;
+            }
+            else {
+                $.get(
+                    '../update/',
+                    {
+                        id: <?php echo $event->id; ?>,
+                        key: mark,
+                        value: $('#event-' + mark)[0].value
+                    },
+                    function() {
+                        console.log('mod success');
+                    }
+                );
+            }
+        }
+    });
     
     function checkEmpty(str) {
         if (str.length == 0) {

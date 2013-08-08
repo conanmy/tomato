@@ -75,6 +75,17 @@ class Event extends CI_Controller {
             )
         );
     }
+
+    function mod($id) {
+        $this->load->model('event_model');
+        $data['events'] = $this->event_model->select('id', $id);
+        $this->load->view('event_mod', $data);
+    }
+    
+    function update() {
+        $this->load->model('event_model');
+        $this->event_model->update('id', $_GET['id'], array($_GET['key'] => $_GET['value']));
+    }
 }
 
 ?>

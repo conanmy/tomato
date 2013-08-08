@@ -15,7 +15,7 @@
         <div class="row">
             <label class="field">密码</label>
             <div class="item">
-                <span><input type="text" class="basic-input" id="member-password" name="password" /></span>
+                <span><input type="password" class="basic-input" id="member-password" name="password" /></span>
                 <span class="tip"></span>
                 <span class="error" id="password-error"></span>
             </div>

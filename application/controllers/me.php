@@ -8,6 +8,8 @@ class Me extends CI_Controller {
     function index() {
         $this->load->model('member_model');
         $data['info'] = $this->member_model->select('id', $this->session->userdata('user_id'));
+        $this->load->model('event_model');
+        $data['myevents'] = $this->event_model->select('owner', $this->session->userdata('user_id'));
         $this->load->view('me', $data);
     }
     
