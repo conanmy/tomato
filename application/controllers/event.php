@@ -76,6 +76,12 @@ class Event extends CI_Controller {
         );
     }
 
+    function manage($id) {
+        $this->load->model('event_model');
+        $data['events'] = $this->event_model->select('id', $id);
+        $this->load->view('event_manage', $data);
+    }
+    
     function mod($id) {
         $this->load->model('event_model');
         $data['events'] = $this->event_model->select('id', $id);
@@ -84,7 +90,20 @@ class Event extends CI_Controller {
     
     function update() {
         $this->load->model('event_model');
+        $this->load->model('member_model');
+        if (($_GET['key'] == 'begin') || ($_GET['key'] == 'end')) {
+            $_GET['value'] = date("Y-m-d H:i:s", strtotime($_GET['value']));
+        }
         $this->event_model->update('id', $_GET['id'], array($_GET['key'] => $_GET['value']));
+        if ($_GET['key'] == 'join') {
+            $ids = explode(',', $_GET['value']);
+            foreach($ids as $id) {
+                $member = $this->member_model->select('id', $id);
+                $member = $member['0'];
+                $this->member_model->update('id', $id, array('footprint' => ($member->footprint + 1)));
+            }
+            $this->event_model->update('id', $_GET['id'], array('closed' => 'true'));
+        }
     }
 }
 

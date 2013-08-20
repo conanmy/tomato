@@ -36,6 +36,9 @@ class Member extends CI_Controller {
         $this->email->message('请点击完成验证，<a href="http://localhost/tomato/index.php/member/check/'.$id.'/'.$random.'/">去验证</a>');
         $this->email->send();
         echo $this->email->print_debugger();
+        echo '注册成功，请前往'.$_POST['email'].'验证，然后登录番茄网。';
+        sleep(8);
+        redirect(base_url().'index.php/event/');
     }
     
     function check($id, $verify) {
@@ -47,8 +50,28 @@ class Member extends CI_Controller {
             $this->member_model->insert($info['0']);
             copy('asset/img/avatar/default.jpg', 'asset/img/avatar/'.$id.'.jpg');
         }
-        redirect('../../');
+        redirect(base_url().'index.php/event/');
     }
+    
+    /*
+     * @param
+     * $_GET['ids'] {string} 用户id用,分隔组成的字符串
+     * $_GET['target'] {string} 要拿到的字段名
+     * @return {string} 目标字段，用,分隔连接
+     */
+    function batch() {
+        $ids = explode(',', $_GET['ids']);
+        $content = array();
+        $this->load->model('member_model');
+        foreach($ids as $id) {
+            $member = $this->member_model->select('id', $id);
+            $member = $member['0'];
+            $info = array('name' => $member->name, 'phone' => $member->phone);
+            array_push($content, $info);
+        }
+        echo json_encode($content);
+    }
+
 }
 
 ?>

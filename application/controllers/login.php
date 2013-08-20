@@ -17,6 +17,8 @@ class Login extends CI_Controller {
                 'logged_in' => TRUE,
                 'user_name' => $member['0']->name,
                 'user_id' => $member['0']->id,
+                'user_role'=> $member['0']->role,
+                'verify' => $member['0']->verify
             );
             $this->session->set_userdata($data);
             redirect('/event/');

@@ -40,13 +40,6 @@ table {
 textarea {
     resize: vertical
 }
-.hide {
-    display: none
-}
-.error {
-    color: #F00;
-    font-size: 12px
-}
 button {
     cursor: pointer
 }
@@ -92,11 +85,22 @@ h1 {
 }
 h2 {
     font-size: 1.2em;
-    padding-bottom: 10px;
+    padding: 10px 0 5px;
 }
 input[type='submit'] {
     cursor: pointer;
     padding: 5px 10px;
+}
+.link {
+    cursor: pointer;
+    color: #3838cd;
+}
+.hide {
+    display: none
+}
+.error {
+    color: #F00;
+    font-size: 12px
 }
 .tomato_color {
     color: #f67980;
@@ -109,6 +113,7 @@ input[type='submit'] {
     cursor: pointer;
     padding: 3px 10px;
     border: solid 1px #ac6e4f;
+    border-radius: 2px;
     background-color: #fe9500;
     font-size: 1.1em;
 }
@@ -165,7 +170,3 @@ input[type='submit'] {
     height: 60px;
 }
 
-.mod {
-    cursor: pointer;
-    color: #3838cd;
-}

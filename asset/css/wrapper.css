@@ -35,11 +35,42 @@
 .event-member {
     margin-bottom: 10px;
 }
+.event-member .member-item {
+    display: inline-block;
+    text-align: center;
+}
 #cancel {
     cursor: pointer;
     margin-left: 5px;
     color: #d6d6d6;
 }
+.event-manage {
+    margin-bottom: 10px;
+}
+#memo {
+    margin-top: 10px;
+}
+.memo-name {
+    display: inline-block;
+    width: 60px;
+}
 .previous-event-link {
-    margin-top:20px;
+    margin-top: 20px;
+}
+#member-confirm {
+    margin-top: 10px;
+}
+.footprint {
+    display: inline-block;
+    width: 20px;
+    height: 26px;
+    background-image: url(../img/foot.png);
+}
+.foot-right {
+    background-position: -20px 0; 
+}
+.personal-page .avatar-wrapper {
+    float: left;
+    width: 90px;
+    text-align: center;
 }

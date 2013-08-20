@@ -16,7 +16,13 @@
             include('unlogged.php');
         }
         else {
-            echo '<p><a href="'.base_url().'index.php/event/create/">发起活动</a></p>';
+            $role = $this->session->userdata('user_role');
+            if (($role == 'owner') || ($role == 'master')) {
+                echo '<p><a href="'.base_url().'index.php/event/create/">发起活动</a></p>';
+            }
+            else if ($role == 'member'){
+                echo '<p><a href="'.base_url().'index.php/candidate/index/">申请成为组织者</a></p>';
+            }
         }
     ?>
 </div>
