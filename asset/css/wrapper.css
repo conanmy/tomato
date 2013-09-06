@@ -19,6 +19,9 @@
     float: left;
     padding: 8px;
 }
+.bottom-button-area {
+    margin-top: 10px;
+}
 /******活动详情******/
 .event-info {
     position: relative;

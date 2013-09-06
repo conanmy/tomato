@@ -21,7 +21,7 @@
                 echo '<p><a href="'.base_url().'index.php/event/create/">发起活动</a></p>';
             }
             else if ($role == 'member'){
-                echo '<p><a href="'.base_url().'index.php/candidate/index/">申请成为组织者</a></p>';
+                echo '<p><a href="'.base_url().'index.php/candidate/index/">申请成为领队</a></p>';
             }
         }
     ?>

@@ -22,6 +22,7 @@ ul, ol {
     list-style: none
 }
 a {
+    color: #436073;
     text-decoration: none
 }
 a:hover {
@@ -91,9 +92,18 @@ input[type='submit'] {
     cursor: pointer;
     padding: 5px 10px;
 }
+.gray {
+    color: gray;
+}
+.red {
+    color: red;
+}
+.link-color {
+    color: #436073;
+}
 .link {
     cursor: pointer;
-    color: #3838cd;
+    color: #436073;
 }
 .hide {
     display: none
@@ -157,16 +167,13 @@ input[type='submit'] {
 .avatar-big {
     float: left;
     width: 120px;
-    height: 120px;
 }
 .avatar-normal {
     float: left;
     width: 90px;
-    height: 90px;
 }
 .avatar-small {
     float: left;
     width: 60px;
-    height: 60px;
 }
 

@@ -11,5 +11,11 @@
                 }
             ?>
         </ul>
+        <?php if($this->session->userdata('logged_in')): ?>
+            <span class="user-info-nav link-color">
+                <?=$this->session->userdata('user_id');?>号番茄 <?=$this->session->userdata('user_name');?>
+                <a href="<?=base_url();?>index.php/login/out/">退出</a>
+            </span>
+        <?php endif; ?>
     </div>
 </div>

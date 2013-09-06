@@ -8,7 +8,7 @@
             <img class="avatar-normal" src="<?php echo base_url().'asset/img/avatar/'.$me->id.'.jpg'; ?>" />
             <a href="../avatar/">修改头像</a>
             <?php else: ?>
-                    您需要上传头像才能看到其他成员的信息，<a href="../avatar/">立即上传</a>
+                    上传头像才能看到其他成员信息<br/><a href="../avatar/">立即上传</a>
             <?php endif; ?>
         </div>
         <div class="info">
@@ -50,20 +50,28 @@
               <li>
                 <span>所在单位及工作：</span><?php echo $me->job; ?>
               </li>
-              <?php
-                if ($me->page) {
-                    echo '<li>'.
-                           '<span>个人页面：</span>'.$me->page.
-                         '</li>';
-                }
-              ?>
+              <?php if ($me->qq): ?>
+              <li>
+                  <span>QQ：</span><?=$me->qq;?>
+              </li>
+              <?php endif; ?>
+              <?php if ($me->page): ?>
+              <li>
+                  <span>个人页面：</span><?=$me->page;?>
+              </li>
+              <?php endif; ?>
+              <?php if ($me->intro): ?>
               <li>
                 <span>自我介绍：</span><?php echo $me->intro; ?>
               </li>
+              <?php endif; ?>
             </ul>
             <a href="<?php echo base_url().'index.php/me/mod/'.$me->id; ?>">修改个人信息</a>
         </div>
     </div>
+    
+    <?php $role = $this->session->userdata('user_role'); ?>
+    <?php if (($role == 'owner') || ($role == 'master')): ?>
     <h2>我的活动</h2>
     <ul>
         <?php foreach($myevents as $myevent): ?>
@@ -72,31 +80,36 @@
         </li>
         <?php endforeach; ?>
     </ul>
-    
-    <?php if (isset($candidates)): ?> 
-    <h2>候选领主</h2>
-    <ul>
-        <?php foreach($candidates as $candidate): ?>
-        <li>
-            <a href="<?php echo base_url().'index.php/member/detail/'.$candidate->id; ?>"><?php echo $candidate->name; ?></a>
-            <span class="approve link" for="<?php echo $candidate->id; ?>">批准</span>
-            <span class="error" id="<?php echo $candidate->id; ?>-approve-error"></span>
-        </li>
-        <?php endforeach; ?>
-    </ul>
     <?php endif; ?>
     
-    <?php if (isset($toverifys)): ?>
-    <h2>头像待审</h2>
-    <ul>
-        <?php foreach($toverifys as $toverify): ?>
-        <li>
-            <a href="<?php echo base_url().'index.php/member/detail/'.$toverify->id; ?>"><?php echo $toverify->name; ?></a>
-            <span class="pass link" for="<?php echo $toverify->id; ?>">通过</span>
-            <span class="error" id="<?php echo $toverify->id; ?>-pass-error"></span>
-        </li>
-        <?php endforeach; ?>
-    </ul>
+    <?php if ($role == 'master'): ?>
+        
+        <?php if (isset($candidates)): ?>
+        <h2>候选领队</h2>
+        <ul>
+            <?php foreach($candidates as $candidate): ?>
+            <li>
+                <a href="<?php echo base_url().'index.php/member/detail/'.$candidate->id; ?>"><?php echo $candidate->name; ?></a>
+                <span class="approve link" for="<?php echo $candidate->id; ?>">批准</span>
+                <span class="error" id="<?php echo $candidate->id; ?>-approve-error"></span>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+        
+        <?php if (isset($toverifys)): ?>
+        <h2>头像待审</h2>
+        <ul>
+            <?php foreach($toverifys as $toverify): ?>
+            <li>
+                <a href="<?php echo base_url().'index.php/member/detail/'.$toverify->id; ?>"><?php echo $toverify->name; ?></a>
+                <span class="pass link" for="<?php echo $toverify->id; ?>">通过</span>
+                <span class="error" id="<?php echo $toverify->id; ?>-pass-error"></span>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+    
     <?php endif; ?>
 </div>
 <div class="side">

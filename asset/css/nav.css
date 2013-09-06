@@ -2,6 +2,7 @@
     width: 100%;
 }
 .nav {
+    position: relative;
     max-width: 900px;
     margin: 0 auto;
     padding: 10px 0;
@@ -19,4 +20,14 @@
 .nav ul li {
     display: inline;
     margin-left: 10px;
+}
+.user-info-nav {
+    font-size: 0.8em;
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+}
+.user-info-nav a {
+    margin-left: 5px;
+    cursor: pointer;
 }

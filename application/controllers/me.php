@@ -31,7 +31,8 @@ class Me extends CI_Controller {
         
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload()) {
-            $this->upload->display_errors('<p>', '</p>');
+            echo '对不起，上传失败，请重试。如果多次不成功，可以换一张图片试试。';
+            $this->upload->display_errors();
         }
         else {
             $data = $this->upload->data();
@@ -42,7 +43,6 @@ class Me extends CI_Controller {
             $this->member_model->update('id', $this->session->userdata('user_id'), array(
                 'verify' => 'waiting'
             ));
-            echo('上传成功');
             redirect('./me/');
         }
     }
