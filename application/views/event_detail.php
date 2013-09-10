@@ -8,7 +8,8 @@
         <div class="event-join">
         <?php 
             $join = $event->join;
-            $apply = '<div id="apply" class="button">报名</div>';
+            $logged = $this->session->userdata('logged_in');
+            $apply = $logged ? '<div id="apply" class="button">报名</div>' : '<div id="apply" class="button disable" title="请登录后报名">报名</div>';
             if ($join) {
                 $join = explode(',', $join);
                 if (in_array($userid, $join)) {

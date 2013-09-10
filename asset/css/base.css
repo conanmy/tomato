@@ -127,6 +127,11 @@ input[type='submit'] {
     background-color: #fe9500;
     font-size: 1.1em;
 }
+.button.disable {
+    background-color: #cccccc;
+    color: white;
+    border: 1px solid #c1c1c1;
+}
 .row {
     margin: 10px 0;
     line-height: 20px;

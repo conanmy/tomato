@@ -1,7 +1,7 @@
 <?php include('head.php'); ?>
 <div class="main">
     <h1>关于番茄网领队</h1>
-    <p>成为领队，你可以发挥自己的聪明才智，组织新颖有趣的活动，帮助大家更好地相识。</p>
+    <p>成为领队，你可以发挥自己的聪明才智，组织新颖有趣的活动，带领大家分享快乐、遇见爱。</p>
     <div class="bottom-button-area">
         <div class="button" id="candidate">申请成为领队</div><span class="error" id="candidate-tip"></span>
     </div>
