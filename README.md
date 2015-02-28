@@ -1,3 +1,3 @@
 tomato
 ======
-A website where you can organise activities.
+Website where you organise activities.
