@@ -1,3 +1,3 @@
 tomato
 ======
-An activity organising website similar with Douban.
+A website where you can organise activities.
