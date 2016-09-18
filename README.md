@@ -1,3 +1,3 @@
 tomato
 ======
-Website where you organise activities.
+Website where you organise activities. Developed with CodeIgniter.
